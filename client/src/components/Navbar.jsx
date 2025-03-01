@@ -11,6 +11,8 @@ const Navbar = () => {
     const navigate = useNavigate();
     const { setShowRecruiterLogin } = useContext(AppContext);
 
+
+
     return (
         <div className='shadow bg-gradient-to-tl from-green-200 via-teal-400 to-emerald-900 py-4 fixed top-0 z-50 w-full'>
             <div className='container px-4 2xl:px-20 mx-auto flex justify-between items-center'>
@@ -25,8 +27,8 @@ const Navbar = () => {
                             <UserButton />
                         </div>
                         : <div className='flex gap-4 max-sm:text-s'>
-                            <button className='text-gray-600 cursor-pointer'>Recruiter Login</button>
-                            <button onClick={() => openSignIn()} className='bg-green-500 cursor-pointer text-white px-6 sm:px-9 py-2 rounded-md'>
+                            <button onClick={() => setShowRecruiterLogin(true)} className='text-gray-600 font-bold cursor-pointer'>Recruiter Login</button>
+                            <button onClick={() => openSignIn()} className='bg-orange-400 cursor-pointer text-white px-6 sm:px-9 py-2 rounded-md'>
                                 Login
                             </button>
 
