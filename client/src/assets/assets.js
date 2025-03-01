@@ -83,21 +83,21 @@ export const JobCategories = [
 ]
 
 export const JobLocations = [
-    "Bangalore",
-    "Washington",
-    "Hyderabad",
-    "Mumbai",
-    "California",
-    "Chennai",
-    "New York"
+    "Nairobi",
+    "Kisumu",
+    "Mombasa",
+    "Meru",
+    "Kakamega",
+    "Nyeri",
+    "Taita Taveta"
 ]
 
 // Sample data for Manage Jobs Page
 export const manageJobsData = [
-    { _id: 1, title: "Full Stack Developer", date: 1729102298497, location: "Bangalore", applicants: 20 },
-    { _id: 2, title: "Data Scientist", date: 1729102298497, location: "San Francisco", applicants: 15 },
-    { _id: 3, title: "Marketing Manager", date: 1729102298497, location: "London", applicants: 2 },
-    { _id: 4, title: "UI/UX Designer", date: 1729102298497, location: "Dubai", applicants: 25 }
+    { _id: 1, title: "Full Stack Developer", date: 1729102298497, location: "Nairobi", applicants: 20 },
+    { _id: 2, title: "Data Scientist", date: 1729102298497, location: "Taita Taveta", applicants: 15 },
+    { _id: 3, title: "Marketing Manager", date: 1729102298497, location: "Kisumu", applicants: 2 },
+    { _id: 4, title: "UI/UX Designer", date: 1729102298497, location: "Kakamega", applicants: 25 }
 ];
 
 // Sample data for Profile Page
@@ -105,7 +105,7 @@ export const jobsApplied = [
     {
         company: 'Amazon',
         title: 'Full Stack Developer',
-        location: 'Bangalore',
+        location: 'Nairobi',
         date: '22 Aug, 2024',
         status: 'Pending',
         logo: company_icon,
@@ -113,7 +113,7 @@ export const jobsApplied = [
     {
         company: 'Meta',
         title: 'Data Scientist',
-        location: 'San Francisco',
+        location: 'Taita Taveta',
         date: '22 Aug, 2024',
         status: 'Rejected',
         logo: company_icon,
@@ -121,7 +121,7 @@ export const jobsApplied = [
     {
         company: 'Google',
         title: 'Marketing Manager',
-        location: 'London',
+        location: 'Kisumu',
         date: '25 Sep, 2024',
         status: 'Accepted',
         logo: company_icon,
@@ -129,7 +129,7 @@ export const jobsApplied = [
     {
         company: 'Qualcomm',
         title: 'UI/UX Designer',
-        location: 'Dubai',
+        location: 'Mombasa',
         date: '15 Oct, 2024',
         status: 'Pending',
         logo: company_icon,
@@ -137,7 +137,22 @@ export const jobsApplied = [
     {
         company: 'Microsoft',
         title: 'Full Stack Developer',
-        location: 'Hyderabad',
+        location: 'Kisumu',
+        date: '25 Sep, 2024',
+        status: 'Accepted',
+        logo: company_icon,
+    },
+    {
+        company: 'Nvidia',
+        title: 'Machine Learning Expert',
+        location: 'Taita Taveta',
+        date: '25 Sep, 2024',
+        status: 'Accepted',
+        logo: company_icon,
+    }, {
+        company: 'Paypal',
+        title: 'Backend  Developer',
+        location: 'Nyeri',
         date: '25 Sep, 2024',
         status: 'Accepted',
         logo: company_icon,
@@ -145,20 +160,20 @@ export const jobsApplied = [
 ];
 
 export const viewApplicationsPageData = [
-    { _id: 1, name: "Richard Sanford", jobTitle: "Full Stack Developer", location: "Bangalore", imgSrc: profile_img },
-    { _id: 2, name: "Enrique Murphy", jobTitle: "Data Scientist", location: "San Francisco", imgSrc: profile_img },
-    { _id: 3, name: "Alison Powell", jobTitle: "Marketing Manager", location: "London", imgSrc: profile_img },
-    { _id: 4, name: "Richard Sanford", jobTitle: "UI/UX Designer", location: "Dubai", imgSrc: profile_img },
-    { _id: 5, name: "Enrique Murphy", jobTitle: "Full Stack Developer", location: "Hyderabad", imgSrc: profile_img },
-    { _id: 6, name: "Alison Powell", jobTitle: "Data Scientist", location: "New Delhi", imgSrc: profile_img },
-    { _id: 7, name: "Richard Sanford", jobTitle: "Marketing Manager", location: "Chennai", imgSrc: profile_img },
+    { _id: 1, name: "Richard Sanford", jobTitle: "Full Stack Developer", location: "Nairobi", imgSrc: profile_img },
+    { _id: 2, name: "Enrique Murphy", jobTitle: "Data Scientist", location: "Taita Taveta", imgSrc: profile_img },
+    { _id: 3, name: "Alison Powell", jobTitle: "Marketing Manager", location: "Kisumu", imgSrc: profile_img },
+    { _id: 4, name: "Richard Sanford", jobTitle: "UI/UX Designer", location: "Mombasa", imgSrc: profile_img },
+    { _id: 5, name: "Enrique Murphy", jobTitle: "Full Stack Developer", location: "Meru", imgSrc: profile_img },
+    { _id: 6, name: "Alison Powell", jobTitle: "Data Scientist", location: "Nyeri", imgSrc: profile_img },
+    { _id: 7, name: "Richard Sanford", jobTitle: "Marketing Manager", location: "Kisii", imgSrc: profile_img },
 ];
 
 export const jobsData = [
     {
         _id: '1',
         title: "Full Stack Developer",
-        location: "California",
+        location: "Kakamega",
         level: "Senior Level",
         companyId: {
             "_id": "670e4d25ca9fda8f1bf359b9",
@@ -191,7 +206,7 @@ export const jobsData = [
     {
         _id: '2',
         title: "Data Scientist",
-        location: "New York",
+        location: "Kisumu",
         level: "Intermediate Level",
         companyId: {
             "_id": "670e4d25ca9fda8f1bf359b9",
@@ -224,7 +239,7 @@ export const jobsData = [
     {
         _id: '3',
         title: "UI/UX Designer",
-        location: "Bangalore",
+        location: "Nairobi",
         level: "Beginner Level",
         companyId: {
             "_id": "670e4d25ca9fda8f1bf359b9",
@@ -257,7 +272,7 @@ export const jobsData = [
     {
         _id: '4',
         title: "DevOps Engineer",
-        location: "Washington",
+        location: "Kakamega",
         level: "Senior Level",
         companyId: {
             "_id": "670e4d25ca9fda8f1bf359b9",
@@ -290,7 +305,7 @@ export const jobsData = [
     {
         _id: '5',
         title: "Software Engineer",
-        location: "Hyderabad",
+        location: "Kisumu",
         level: "Intermediate Level",
         companyId: {
             "_id": "670e4d25ca9fda8f1bf359b9",
@@ -322,8 +337,8 @@ export const jobsData = [
     },
     {
         _id: '6',
-        title: "Network Engineer",
-        location: "Bangalore",
+        title: "Frontend Developer",
+        location: "Nyeri",
         level: "Senior Level",
         companyId: {
             "_id": "670e4d25ca9fda8f1bf359b9",
@@ -355,8 +370,107 @@ export const jobsData = [
     },
     {
         _id: '7',
+        title: "Data Analyst Engineer",
+        location: "Taita Taveta",
+        level: "Senior Level",
+        companyId: {
+            "_id": "670e4d25ca9fda8f1bf359b9",
+            "name": "Slack",
+            "email": "slack@demo.com",
+            "image": company_icon,
+        },
+        description: `
+        <p>We are looking for a Network Engineer to manage our infrastructure and ensure robust connectivity across all systems. Your expertise will help us design and implement network solutions that are secure and efficient. You will be pivotal in monitoring network performance and ensuring compliance with security standards.</p>
+        <h2><strong>Key Responsibilities</strong></h2>
+        <ol>
+            <li>Design and implement network solutions that meet organizational needs.</li>
+            <li>Monitor network performance and troubleshoot issues to ensure uptime.</li>
+            <li>Ensure security compliance by implementing best practices.</li>
+            <li>Document network configurations and maintain updated records.</li>
+            <li>Collaborate with IT teams to enhance network capabilities.</li>
+        </ol>
+        <h2><strong>Skills Required</strong></h2>
+        <ol>
+            <li>Proficiency in network protocols and routing (e.g., TCP/IP, BGP, OSPF).</li>
+            <li>Experience with firewalls, VPNs, and security technologies.</li>
+            <li>Strong troubleshooting skills and attention to detail.</li>
+            <li>Excellent communication and teamwork abilities.</li>
+            <li>Relevant certifications (e.g., CCNA, CCNP) are a plus.</li>
+        </ol>`,
+        salary: 77000,
+        date: 1729681667114,
+        category: "Networking",
+    },
+    {
+        _id: '8',
+        title: "Network Engineer",
+        location: "Nairobi",
+        level: "Senior Level",
+        companyId: {
+            "_id": "670e4d25ca9fda8f1bf359b9",
+            "name": "Slack",
+            "email": "slack@demo.com",
+            "image": company_icon,
+        },
+        description: `
+        <p>We are looking for a Network Engineer to manage our infrastructure and ensure robust connectivity across all systems. Your expertise will help us design and implement network solutions that are secure and efficient. You will be pivotal in monitoring network performance and ensuring compliance with security standards.</p>
+        <h2><strong>Key Responsibilities</strong></h2>
+        <ol>
+            <li>Design and implement network solutions that meet organizational needs.</li>
+            <li>Monitor network performance and troubleshoot issues to ensure uptime.</li>
+            <li>Ensure security compliance by implementing best practices.</li>
+            <li>Document network configurations and maintain updated records.</li>
+            <li>Collaborate with IT teams to enhance network capabilities.</li>
+        </ol>
+        <h2><strong>Skills Required</strong></h2>
+        <ol>
+            <li>Proficiency in network protocols and routing (e.g., TCP/IP, BGP, OSPF).</li>
+            <li>Experience with firewalls, VPNs, and security technologies.</li>
+            <li>Strong troubleshooting skills and attention to detail.</li>
+            <li>Excellent communication and teamwork abilities.</li>
+            <li>Relevant certifications (e.g., CCNA, CCNP) are a plus.</li>
+        </ol>`,
+        salary: 77000,
+        date: 1729681667114,
+        category: "Networking",
+    },
+    {
+        _id: '9',
+        title: "Database Adminstrator",
+        location: "Taita Taveta",
+        level: "Senior Level",
+        companyId: {
+            "_id": "670e4d25ca9fda8f1bf359b9",
+            "name": "Slack",
+            "email": "slack@demo.com",
+            "image": company_icon,
+        },
+        description: `
+        <p>We are looking for a Network Engineer to manage our infrastructure and ensure robust connectivity across all systems. Your expertise will help us design and implement network solutions that are secure and efficient. You will be pivotal in monitoring network performance and ensuring compliance with security standards.</p>
+        <h2><strong>Key Responsibilities</strong></h2>
+        <ol>
+            <li>Design and implement network solutions that meet organizational needs.</li>
+            <li>Monitor network performance and troubleshoot issues to ensure uptime.</li>
+            <li>Ensure security compliance by implementing best practices.</li>
+            <li>Document network configurations and maintain updated records.</li>
+            <li>Collaborate with IT teams to enhance network capabilities.</li>
+        </ol>
+        <h2><strong>Skills Required</strong></h2>
+        <ol>
+            <li>Proficiency in network protocols and routing (e.g., TCP/IP, BGP, OSPF).</li>
+            <li>Experience with firewalls, VPNs, and security technologies.</li>
+            <li>Strong troubleshooting skills and attention to detail.</li>
+            <li>Excellent communication and teamwork abilities.</li>
+            <li>Relevant certifications (e.g., CCNA, CCNP) are a plus.</li>
+        </ol>`,
+        salary: 77000,
+        date: 1729681667114,
+        category: "Networking",
+    },
+    {
+        _id: '10',
         title: "Project Manager",
-        location: "Bangalore",
+        location: "Mombasa",
         level: "Senior Level",
         companyId: {
             "_id": "670e4d25ca9fda8f1bf359b9",
@@ -387,9 +501,9 @@ export const jobsData = [
         category: "Management",
     },
     {
-        _id: '8',
+        _id: '11',
         title: "Mobile App Developer",
-        location: "Hyderabad",
+        location: "Meru",
         level: "Intermediate Level",
         companyId: {
             "_id": "670e4d25ca9fda8f1bf359b9",
@@ -420,9 +534,9 @@ export const jobsData = [
         category: "Programming",
     },
     {
-        _id: '9',
+        _id: '12',
         title: "Cloud Architect",
-        location: "Hyderabad",
+        location: "Kisumu",
         level: "Senior Level",
         companyId: {
             "_id": "670e4d25ca9fda8f1bf359b9",
@@ -453,9 +567,9 @@ export const jobsData = [
         category: "Programming",
     },
     {
-        _id: '10',
+        _id: '13',
         title: "Technical Writer",
-        location: "Mumbai",
+        location: "Nandi",
         level: "Intermediate Level",
         companyId: {
             "_id": "670e4d25ca9fda8f1bf359b9",
@@ -486,9 +600,9 @@ export const jobsData = [
         category: "Marketing",
     },
     {
-        _id: '11',
+        _id: '14',
         title: "Cybersecurity Analyst",
-        location: "Mumbai",
+        location: "Kisumu",
         level: "Intermediate Level",
         companyId: {
             "_id": "670e4d25ca9fda8f1bf359b9",
@@ -519,9 +633,9 @@ export const jobsData = [
         category: "Cybersecurity",
     },
     {
-        _id: '12',
+        _id: '15',
         title: "Business Analyst",
-        location: "Mumbai",
+        location: "Kilifi",
         level: "Intermediate Level",
         companyId: {
             "_id": "670e4d25ca9fda8f1bf359b9",
@@ -552,9 +666,9 @@ export const jobsData = [
         category: "Management",
     },
     {
-        _id: '13',
+        _id: '16',
         title: "Marketing Specialist",
-        location: "Chennai",
+        location: "Machakos",
         level: "Beginner Level",
         companyId: {
             "_id": "670e4d25ca9fda8f1bf359b9",
@@ -585,9 +699,9 @@ export const jobsData = [
         category: "Marketing",
     },
     {
-        _id: '14',
+        _id: '17',
         title: "Data Scientist",
-        location: "California",
+        location: "Kakamega",
         level: "Senior Level",
         companyId: {
             "_id": "670e4d25ca9fda8f1bf359b9",
@@ -618,9 +732,9 @@ export const jobsData = [
         category: "Data Science",
     },
     {
-        _id: '15',
+        _id: '18',
         title: "UX/UI Designer",
-        location: "Hyderabad",
+        location: "Meru",
         level: "Intermediate Level",
         companyId: {
             "_id": "670e4d25ca9fda8f1bf359b9",
@@ -651,9 +765,9 @@ export const jobsData = [
         category: "Design",
     },
     {
-        _id: '16',
+        _id: '19',
         title: "DevOps Engineer",
-        location: "Bangalore",
+        location: "Nairobi",
         level: "Senior Level",
         companyId: {
             "_id": "670e4d25ca9fda8f1bf359b9",
@@ -684,9 +798,9 @@ export const jobsData = [
         category: "Programming",
     },
     {
-        _id: '17',
+        _id: '20',
         title: "Sales Manager",
-        location: "New York",
+        location: "Embu",
         level: "Senior Level",
         companyId: {
             "_id": "670e4d25ca9fda8f1bf359b9",
@@ -717,9 +831,9 @@ export const jobsData = [
         category: "Marketing",
     },
     {
-        _id: '18',
+        _id: '21',
         title: "Human Resources Specialist",
-        location: "Washington",
+        location: "Nyeri",
         level: "Intermediate Level",
         companyId: {
             "_id": "670e4d25ca9fda8f1bf359b9",
@@ -750,9 +864,9 @@ export const jobsData = [
         category: "Management",
     },
     {
-        _id: '19',
+        _id: '22',
         title: "Content Marketing Manager",
-        location: "Mumbai",
+        location: "Kakamega",
         level: "Senior Level",
         companyId: {
             "_id": "670e4d25ca9fda8f1bf359b9",
@@ -783,9 +897,9 @@ export const jobsData = [
         category: "Marketing",
     },
     {
-        _id: '20',
+        _id: '23',
         title: "Graphic Designer",
-        location: "Chennai",
+        location: "Nyeri",
         level: "Intermediate Level",
         companyId: {
             "_id": "670e4d25ca9fda8f1bf359b9",
@@ -816,9 +930,9 @@ export const jobsData = [
         category: "Design",
     },
     {
-        _id: '21',
+        _id: '24',
         title: "Software Tester",
-        location: "Chennai",
+        location: " Mombasa",
         level: "Intermediate Level",
         companyId: {
             "_id": "670e4d25ca9fda8f1bf359b9",
@@ -849,9 +963,9 @@ export const jobsData = [
         category: "Programming",
     },
     {
-        _id: '22',
+        _id: '25',
         title: "Network Security Engineer",
-        location: "Bangalore",
+        location: "Mombasa",
         level: "Senior Level",
         companyId: {
             "_id": "670e4d25ca9fda8f1bf359b9",
@@ -882,9 +996,9 @@ export const jobsData = [
         category: "Cybersecurity",
     },
     {
-        _id: '23',
+        _id: '26',
         title: "Cloud Engineer",
-        location: "Hyderabad",
+        location: "Meru",
         level: "Intermediate Level",
         companyId: {
             "_id": "670e4d25ca9fda8f1bf359b9",

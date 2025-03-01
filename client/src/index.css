@@ -1,1 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Quicksand:wght@300..700&display=swap');
 @import "tailwindcss";
+* {
+    font-family: Quicksand;
+}
+
+@keyframes colorSpin {
+    0% {
+        border-top-color: #EF4444;
+    }
+
+    /* Red */
+    25% {
+        border-top-color: #EF4444;
+    }
+
+    /* Stay Red */
+    26% {
+        border-top-color: #F59E0B;
+    }
+
+    /* Orange */
+    50% {
+        border-top-color: #F59E0B;
+    }
+
+    /* Stay Orange */
+    51% {
+        border-top-color: #10B981;
+    }
+
+    /* Green */
+    75% {
+        border-top-color: #10B981;
+    }
+
+    /* Stay Green */
+    76% {
+        border-top-color: #3B82F6;
+    }
+
+    /* Blue */
+    100% {
+        border-top-color: #3B82F6;
+    }
+
+    /* Stay Blue */
+}
+
+.animate-color-spin {
+    animation: spin 1s linear infinite, colorSpin 4s linear infinite;
+}
