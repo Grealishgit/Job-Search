@@ -10,10 +10,10 @@ const Footer = () => {
                 Copyright <span className='text-red-500'> @Hunter-Dev</span> Inc | All Rights Reserved.
             </p>
             <div className='flex gap-2.5'>
-                <Facebook width={35} height={35} className='rounded text-blue-500 cursor-pointer border border-gray-400' />
-                <Instagram width={35} height={35} className='rounded text-red-500 cursor-pointer border border-gray-400' />
-                <Linkedin width={35} height={35} className='rounded text-blue-500 cursor-pointer border border-gray-400' />
-                <Twitter width={35} height={35} className='rounded text-sky-500 cursor-pointer border border-gray-400' />
+                <Facebook width={35} height={35} className='rounded text-blue-500 bg-gray-200 cursor-pointer border border-gray-400' />
+                <Instagram width={35} height={35} className='rounded text-red-500 cursor-pointer bg-gray-200 border border-gray-400' />
+                <Linkedin width={35} height={35} className='rounded text-blue-500 cursor-pointer bg-gray-200 border border-gray-400' />
+                <Twitter width={35} height={35} className='rounded text-sky-500 cursor-pointer bg-gray-200 border border-gray-400' />
             </div>
         </div>
     )

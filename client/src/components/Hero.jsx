@@ -29,7 +29,7 @@ const Hero = () => {
                     and Take the First Step Toward Your Future!
 
                 </p>
-                <div className='flex items-center justify-between bg-white rounded text-gray-600 max-w-xl pl-4 mx-4 sm:mx-auto'>
+                <div className='flex items-center justify-between bg-white rounded text-gray-600 max-w-2xl pl-4 mx-4 sm:mx-auto'>
                     <div className='flex items-center'>
                         <img className='h-4 sm:h-5' src={assets.search_icon} alt="" />
                         <input type="text" placeholder='Search for jobs'

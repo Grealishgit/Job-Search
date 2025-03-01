@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { assets } from '../assets/assets';
 import { useClerk, useUser, UserButton, SignInButton } from '@clerk/clerk-react';
 import { Link, useNavigate } from 'react-router-dom';
+import { AppContext } from '../context/AppContext';
 
 const Navbar = () => {
     const { openSignIn } = useClerk();
     const { user } = useUser();
 
     const navigate = useNavigate();
+    const { setShowRecruiterLogin } = useContext(AppContext);
 
     return (
         <div className='shadow bg-gradient-to-tl from-green-200 via-teal-400 to-emerald-900 py-4 fixed top-0 z-50 w-full'>

@@ -144,7 +144,7 @@ export const jobsApplied = [
     },
     {
         company: 'Nvidia',
-        title: 'Machine Learning Expert',
+        title: 'AI Expert',
         location: 'Taita Taveta',
         date: '25 Sep, 2024',
         status: 'Accepted',
