@@ -2,9 +2,12 @@ import React, { useContext, useEffect, useState } from 'react'
 import { assets } from '../assets/assets';
 import { X } from "lucide-react";
 import { AppContext } from '../context/AppContext';
+import { useNavigate } from 'react-router-dom';
 
 
 const RecruiterLogin = () => {
+
+    const navigate = useNavigate();
 
     const [state, setState] = useState('Login');
     const [name, setName] = useState('');
@@ -68,7 +71,7 @@ const RecruiterLogin = () => {
                             </div>
                         </>
                 }
-                {state === 'Login' && <p className='text-sm text-teal-500 underline my-4 cursor-pointer'>Forgot Password</p>}
+                {state === 'Login' && <p onClick={() => navigate('/dashboard')} className='text-sm text-teal-500 underline my-4 cursor-pointer'>Forgot Password</p>}
 
                 <button type='submit' className='bg-teal-500 w-full text-white py-2 rounded-md gap-2'>
                     {state === 'Login' ? 'Login' : isTextDataSubmitted ? 'Create Account' : 'Next'}
