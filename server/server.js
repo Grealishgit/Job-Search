@@ -5,6 +5,7 @@ import 'dotenv/config'
 import connectDB from './config/db.js';
 import * as Sentry from "@sentry/node";
 import { clerkwebhooks } from './controller/webhooks.js';
+import companyRoutes from './routes/companyRoutes.js'
 
 
 //Initailize express
@@ -24,7 +25,8 @@ app.get("/debug-sentry", function mainHandler(req, res) {
 });
 
 
-app.post('/webhooks', clerkwebhooks)
+app.post('/webhooks', clerkwebhooks);
+app.use('/api/company', companyRoutes)
 
 
 
