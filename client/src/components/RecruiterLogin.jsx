@@ -3,6 +3,9 @@ import { assets } from '../assets/assets';
 import { X } from "lucide-react";
 import { AppContext } from '../context/AppContext';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios'
+import { toast } from 'react-toastify';
+//import toast from 'react-toastify'
 
 
 const RecruiterLogin = () => {
@@ -16,13 +19,59 @@ const RecruiterLogin = () => {
 
     const [image, setImage] = useState(false);
     const [isTextDataSubmitted, setIsTextDataSubmitted] = useState(false);
-    const { showRecruiterLogin, setShowRecruiterLogin } = useContext(AppContext);
+    const { showRecruiterLogin, setShowRecruiterLogin, backendUrl, setCompanyToken, setCompanyData } = useContext(AppContext);
 
     const onSubmitHandler = async (e) => {
         e.preventDefault();
         if (state == "Sign Up" && !isTextDataSubmitted) {
-            setIsTextDataSubmitted(true);
+            return setIsTextDataSubmitted(true);
         }
+
+
+        try {
+            if (state === "Login") {
+                const { data } = await axios.post(backendUrl + '/api/company/login', { email, password })
+                if (data.success) {
+                    toast.success(data.message || "Login Successful");
+                    setCompanyData(data.company)
+                    setCompanyToken(data.token)
+                    localStorage.setItem('companyToken', data.token)
+                    setShowRecruiterLogin(false)
+                    navigate('/dashboard/view-applications')
+                    //console.log(data);
+
+                } else {
+                    toast.error(data.message || "Login Failed");
+
+                }
+            } else {
+                const formData = new FormData()
+                formData.append('name', name)
+                formData.append('password', password)
+                formData.append('email', email)
+                formData.append('image', image)
+
+                const { data } = await axios.post(backendUrl + '/api/company/register', formData)
+
+                if (data.success) {
+                    toast.success(data.message || "Registration Successful");
+                    setCompanyData(data.company)
+                    setCompanyToken(data.token)
+                    localStorage.setItem('companyToken', data.token)
+                    setShowRecruiterLogin(false)
+                    navigate('/dashboard/view-applications')
+                    //console.log(data);
+
+                } else {
+                    toast.error(data.message || "Registration Failed Try Again");
+
+                }
+            }
+        } catch (error) {
+            toast.error(error.message)
+        }
+
+
     }
     useEffect(() => {
         document.body.style.overflow = 'hidden'
@@ -73,7 +122,7 @@ const RecruiterLogin = () => {
                 }
                 {state === 'Login' && <p onClick={() => navigate('/dashboard')} className='text-sm text-teal-500 underline my-4 cursor-pointer'>Forgot Password</p>}
 
-                <button type='submit' className='bg-teal-500 w-full text-white py-2 rounded-md gap-2'>
+                <button type='submit' className='bg-teal-500 w-full text-white py-2 cursor-pointer rounded-md gap-2'>
                     {state === 'Login' ? 'Login' : isTextDataSubmitted ? 'Create Account' : 'Next'}
                 </button>
 

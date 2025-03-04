@@ -14,7 +14,7 @@ const Navbar = () => {
 
 
     return (
-        <div className='shadow bg-gradient-to-tl from-green-200 via-teal-400 to-emerald-900 py-4 fixed top-0 z-50 w-full'>
+        <div className='shadow bg-gradient-to-tl from-gray-200 via-gray-100 to-orange-500 py-4 fixed top-0 z-50 w-full'>
             <div className='container px-4 2xl:px-20 mx-auto flex justify-between items-center'>
                 <img className='cursor-pointer' onClick={() => navigate('/')} src={assets.logo} alt="Logo" />
 
