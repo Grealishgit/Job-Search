@@ -4,18 +4,20 @@ import Navbar from '../components/Navbar'
 import { assets, jobsApplied } from '../assets/assets';
 import moment from 'moment';
 import { ChevronLeft } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Applications = () => {
 
     const [isEdit, setIsEdit] = useState(false);
     const [resume, setResume] = useState(null)
+    const navigate = useNavigate();
 
     return (
         <>
             <Navbar />
 
             <div className='container px-4 min-h-[65vh] 2xl:px-20 mx-auto my-10 pt-25'>
-                <a className='flex mb-3 font-bold' href="/"> <ChevronLeft /> Back</a>
+                <a className='flex mb-3 cursor-pointer font-bold' onClick={() => navigate('/')}> <ChevronLeft /> Back</a>
                 <h2 className='text-xl font-semibold'>Your Resume</h2>
                 <div className='flex gap-2 mb-6 mt-3'>
                     {

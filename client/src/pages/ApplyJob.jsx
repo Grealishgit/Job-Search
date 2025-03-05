@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { AppContext } from '../context/AppContext';
 import Loading from '../components/Loading';
 import Navbar from '../components/Navbar';
@@ -9,37 +9,45 @@ import moment from 'moment'
 import JobCard from '../components/JobCard';
 import Footer from '../components/Footer';
 import { ChevronLeft } from 'lucide-react';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const ApplyJob = () => {
 
   const { id } = useParams();
   const [JobData, setJobData] = useState(null);
-  const { jobs } = useContext(AppContext);
+  const { jobs, backendUrl } = useContext(AppContext);
   const [visibleJobs, setVisibleJobs] = useState(1);
 
+  const navigate = useNavigate();
+
   const fetchJob = async () => {
-    const data = jobs.filter(job => job._id.toString() === id);
-    if (data.length !== 0) {
-      setJobData(data[0]);
-      console.log("Job Found:", data[0]);
-    } else {
-      console.log("Job Not Found with ID:", id);
+
+    try {
+      const { data } = await axios.get(backendUrl + `/api/jobs/${id}`)
+      if (data.success) {
+        setJobData(data.job)
+      } else {
+        toast.error(data.message)
+      }
+    } catch (error) {
+      toast.error(error.message)
     }
+
   };
 
 
   useEffect(() => {
-    if (jobs.length > 0) {
       fetchJob();
-    }
-  }, [id, jobs])
+
+  }, [id])
 
   return JobData ? (
     <>
       <Navbar />
 
       <div className='min-h-screen flex flex-col py-10 container pt-25  px-4 2xl:px-20 mx-auto'>
-        <a className='flex mb-3 font-bold' href="/"> <ChevronLeft /> Back</a>
+        <a className='flex mb-3 cursor-pointer font-bold' onClick={() => navigate('/')}> <ChevronLeft /> Back</a>
         <div className='bg-white text-black rounded-lg w-full' >
           <div className='flex justify-center md:justify-between flex-wrap gap-8 px-14 py-20 mb-6 bg-emerald-50 border border-sky-400 rounded-xl'>
             <div className='flex flex-col md:flex-row items-center'>
