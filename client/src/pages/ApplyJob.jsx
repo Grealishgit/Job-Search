@@ -52,7 +52,7 @@ const ApplyJob = () => {
         return toast.error('Upload resume to apply for jobs')
       }
 
-
+      const token = await getToken();
 
       const { data } = await axios.post(backendUrl + '/api/users/apply',
         { jobId: JobData._id }, { headers: { Authorization: `Bearer ${token}` } }
@@ -119,7 +119,7 @@ const ApplyJob = () => {
 
                   <span className='flex font-bold  items-center gap-1'>
                     <img src={assets.money_icon} alt="" />
-                    Estimated Salary: <span className='text-green-500'>{kconvert.convertTo(JobData.salary)}</span>
+                    Estimated Salary: <span className='text-green-500'>{kconvert.convertTo(JobData.salary)}</span> 
                   </span>
                 </div>
               </div>
