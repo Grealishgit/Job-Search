@@ -27,39 +27,37 @@ export const getUserData = async (req, res) => {
 //Apply for a job
 
 export const applyFoJob = async (req, res) => {
-
-    const { jobId } = req.body
-    const userId = req.auth.userId
+    const { jobId } = req.body;
+    const userId = req.auth.userId;
 
     try {
+        // Check if the user has already applied for this job
+        const isAlreadyApplied = await JobApplication.findOne({ jobId, userId });
 
-
-        const isAlreadyApplied = await JobApplication.find({ jobId, userId })
-
-        if (isAlreadyApplied > 0) {
-            return res.json({ success: false, message: 'Already Applied' });
+        if (isAlreadyApplied) {  // ✅ Check if a record exists
+            return res.json({ success: false, message: "Already Applied" });
         }
 
-        const jobData = await Job.findById(jobId)
-
+        // Find the job
+        const jobData = await Job.findById(jobId);
         if (!jobData) {
-            return res.json({ success: false, message: 'No Job Found' });
+            return res.json({ success: false, message: "No Job Found" });
         }
 
+        // Save the job application
         await JobApplication.create({
             companyId: jobData.companyId,
             userId,
             jobId,
-            date: Date.now()
-        })
+            date: Date.now(),
+        });
 
-        res.json({ success: true, message: 'Application Successfuly' });
+        res.json({ success: true, message: "Application Successful" });
 
     } catch (error) {
         res.json({ success: false, message: error.message });
     }
-
-}
+};
 
 //Get User Applied Applications
 export const getUserJobApplications = async (req, res) => {
@@ -88,20 +86,23 @@ export const getUserJobApplications = async (req, res) => {
 //Update User Profile(resume)
 export const updateUserResume = async (req, res) => {
     try {
-        const userId = req.auth.userId
+        const userId = req.auth.userId;
+        const resumeFile = req.file;
 
-        const resumeFile = req.resumeFile
-
-        const userData = await User.findById(userId)
-
-        if (resumeFile) {
-            const resumeUpload = await cloudinary.uploader.upload(resumeFile.path)
-            userData.resume = resumeUpload.secure_url
+        const userData = await User.findById(userId);
+        if (!userData) {
+            return res.json({ success: false, message: "User not found" });
         }
 
-        return res.json({ success: true, message: 'Resume Updated' })
+        if (resumeFile) {
+            const resumeUpload = await cloudinary.uploader.upload(resumeFile.path);
+            userData.resume = resumeUpload.secure_url;
+            await userData.save();  
+        }
+
+        return res.json({ success: true, message: "Resume Updated", resume: userData.resume });
 
     } catch (error) {
-        res.json({ success: false, message: error.message })
+        res.json({ success: false, message: error.message });
     }
-}
+};

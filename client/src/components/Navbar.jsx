@@ -23,7 +23,7 @@ const Navbar = () => {
                         ? <div className='flex items-center gap-3'>
                             <Link className='font-semibold' to={'/applications'}>Applied Jobs</Link>
                             <p className='font-semibold'>|</p>
-                            <p className='max-sm:hidden'>Hi! <span className='text-white font-bold'>{user.firstName}</span> </p>
+                            <p className='max-sm:hidden'>Hi! <span className='text-orange-500 font-bold'>{user.firstName}</span> </p>
                             <UserButton />
                         </div>
                         : <div className='flex gap-4 max-sm:text-s'>

@@ -11,12 +11,16 @@ import Footer from '../components/Footer';
 import { ChevronLeft } from 'lucide-react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { useAuth } from '@clerk/clerk-react';
 
 const ApplyJob = () => {
 
+  const { getToken } = useAuth()
+
   const { id } = useParams();
   const [JobData, setJobData] = useState(null);
-  const { jobs, backendUrl } = useContext(AppContext);
+  const [isAlreadyApplied, setIsAlreadyApplied] = useState(false)
+  const { jobs, backendUrl, userData, userApplications, fetchUserApplications } = useContext(AppContext);
   const [visibleJobs, setVisibleJobs] = useState(1);
 
   const navigate = useNavigate();
@@ -36,11 +40,51 @@ const ApplyJob = () => {
 
   };
 
+  const applyHandler = async () => {
+    try {
+
+      if (!userData) {
+        return toast.error('Login to Apply for jobs')
+      }
+      if (!userData.resume) {
+        navigate('/applications')
+        return toast.error('Upload resume to apply for jobs')
+      }
+
+      const token = await getToken()
+      const { data } = await axios.post(backendUrl + '/api/users/apply',
+        { jobId: JobData._id }, { headers: { Authorization: `Bearer ${token}` } }
+      )
+
+      if (data.success) {
+        toast.success(data.message)
+        fetchUserApplications()
+      } else {
+        toast.error(data.message)
+      }
+
+
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }
+
+  const checkUsersAlreadyAppliedJobs = () => {
+    const hasApplied = userApplications.some(item => item.jobId._id === JobData._id)
+    setIsAlreadyApplied(hasApplied)
+  }
 
   useEffect(() => {
       fetchJob();
 
   }, [id])
+
+  useEffect(() => {
+    if (userApplications.length > 0 && JobData) {
+      checkUsersAlreadyAppliedJobs()
+    }
+
+  }, [JobData, userApplications, id])
 
   return JobData ? (
     <>
@@ -80,7 +124,7 @@ const ApplyJob = () => {
             </div>
 
             <div className='flex flex-col justify-center text-end text-sm max-md:mx-auto max-md:text-center'>
-              <button className='bg-teal-500 p-2.5 font-semibold px-10 text-white rounded cursor-pointer'>Apply Now</button>
+              <button onClick={applyHandler} className='bg-teal-500 p-2.5 font-semibold px-10 text-white rounded cursor-pointer'>{isAlreadyApplied ? 'Already Applied' : 'Apply Now'} </button>
               <p className='mt-1 text-gray-600 font-bold'>Posted {moment(JobData.date).fromNow()}</p>
             </div>
           </div>
@@ -89,7 +133,7 @@ const ApplyJob = () => {
             <div className='w-full lg:w-2/3'>
               <h2 className='font-bold text-2xl text-teal-500 sm:ml-2 ml-3 mb-2'>Job Description</h2>
               <div className='rich-text' dangerouslySetInnerHTML={{ __html: JobData.description }}></div>
-              <button className='bg-teal-500 p-2.5 font-semibold px-10 text-white rounded cursor-pointer mt-5'>Apply Now</button>
+              <button onClick={applyHandler} className='bg-teal-500 p-2.5 font-semibold px-10 text-white rounded cursor-pointer mt-5'>{isAlreadyApplied ? 'Already Applied' : 'Apply Now'}</button>
             </div>
             {/* Right section more Jobs */}
             <div className='w-full lg:w-1/3 mt-8 lg:mt-0 lg:ml-8 space-y-5'>
@@ -97,6 +141,12 @@ const ApplyJob = () => {
 
               {jobs
                 .filter(job => job._id !== JobData._id && job.companyId._id === JobData.companyId._id)
+                .filter(job => {
+                  //set of applied jobsIds
+                  const appliedJobsIds = new Set(userApplications.map(app => app.jobId && app.jobId._id))
+                  //Return true has not applied for this job
+                  return !appliedJobsIds.has(job._id)
+                })
                 .slice(0, visibleJobs)
                 .map((job, index) => <JobCard key={index} job={job} />)
               }
