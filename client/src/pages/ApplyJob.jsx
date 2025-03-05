@@ -56,12 +56,12 @@ const ApplyJob = () => {
                 <h1 className='text-2xl sm:text-4xl font-bold'>{JobData.title}</h1>
                 <div className='flex flex-row flex-wrap max-md:justify-center gap-y-2 gap-6 items-center text-gray-600 mt-2'>
 
-                  <span className='flex font-bold  items-center gap-1'>
+                  <span className='flex font-bold text-red-500 items-center gap-1'>
                     <img src={assets.suitcase_icon} alt="" />
                     {JobData.companyId.name}
                   </span>
 
-                  <span className='flex font-bold  items-center gap-1'>
+                  <span className='flex font-bold text-purple-500  items-center gap-1'>
                     <img src={assets.location_icon} alt="" />
                     {JobData.location}
                   </span>
@@ -73,7 +73,7 @@ const ApplyJob = () => {
 
                   <span className='flex font-bold  items-center gap-1'>
                     <img src={assets.money_icon} alt="" />
-                    CTC:{kconvert.convertTo(JobData.salary)}
+                    Estimated Salary: <span className='text-green-500'>{kconvert.convertTo(JobData.salary)}</span> 
                   </span>
                 </div>
               </div>
