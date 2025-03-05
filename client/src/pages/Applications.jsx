@@ -63,7 +63,7 @@ const Applications = () => {
                         isEdit || userData && userData.resume === "" ?
                             <>
                                 <label className='flex items-center gap-3' htmlFor="resumeUpload">
-                                    <p className='bg-blue-100 text-teal-600 px-4 py-2 rounded'>{resume ? resume.name : "Select Resume"}e</p>
+                                    <p className='bg-blue-100 font-bold text-teal-600 px-4 py-2 rounded'>{resume ? resume.name : "Select Resume"}</p>
                                     <input
                                         onChange={e => setResume(e.target.files[0])}
                                         accept='application/pdf'
@@ -73,13 +73,13 @@ const Applications = () => {
                                     />
                                     <img src={assets.profile_upload_icon} alt="" />
                                 </label>
-                                <button onClick={updateResume} className='bg-teal-100 border cursor-pointer border-green-400 rounded px-5 py-2'>Save</button>
+                                <button onClick={updateResume} className='bg-teal-100 border font-bold cursor-pointer border-green-400 rounded px-5 py-2'>Save</button>
 
                             </> :
 
                             <div className='flex gap-2'>
-                                <a className='bg-teal-100 text-black px-4 py-2 rounded' href={userData.resume} target='_blank'>Resume</a>
-                                <button onClick={() => setIsEdit(true)} className='text-gray-500 border border-gray-300 rounded px-4 py-2'>Edit</button>
+                                <a className='bg-teal-100 font-semibold text-black px-4 py-2 rounded' href={userData.resume} target='_blank'>Resume</a>
+                                <button onClick={() => setIsEdit(true)} className='text-gray-500 border font-bold border-gray-300 rounded px-4 py-2'>Edit</button>
                             </div>
                     }
                 </div>
